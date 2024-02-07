@@ -4,9 +4,9 @@ const game = () => {
     let draw = 0;
 
     for (let i = 0; i < 5; i++){
-        //User let userInput = userInput();
-        //Computer let computerInput = computerInput();
-        //Round let winner = roundLogic(userInput, computerInput);
+        //User let user = userInput();
+        //Computer let computer = computerInput();
+        //Round let winner = roundLogic(user, computer);
         if (winner === 'user') {
             playerScore++;
             console.log(`You're the winner of the round number ${i+1}`);

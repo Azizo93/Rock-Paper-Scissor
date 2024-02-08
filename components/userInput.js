@@ -34,5 +34,3 @@ function playerSelection() {
 
     return userChoiceNumber;
 }
-
-console.log(playerSelection());

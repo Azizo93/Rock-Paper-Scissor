@@ -10,27 +10,40 @@ const game = () => {
         switch (winner) {
             case 'user':
                 playerScore++;
-                console.log(`You're the winner of the round number ${i+1}! You have ${playerScore} points. Computer has ${computerScore} points.`);
+                console.log(`You're the winner of the round number ${i+1}! 
+                             You have ${playerScore} points. 
+                             Computer has ${computerScore} points.`);
                 break;
             case 'computer':
                 computerScore++;
-                console.log(`The Computer is the winner of the round number ${i+1}! You have ${playerScore} points. Computer has ${computerScore} points.`);
+                console.log(`The Computer is the winner of the round number ${i+1}! 
+                             You have ${playerScore} points. 
+                             Computer has ${computerScore} points.`);
                 break;
             default:
                 draw++;
-                console.log(`You tied the round number ${i+1}! You have ${playerScore} points. Computer has ${computerScore} points.`);
+                console.log(`You tied the round number ${i+1}! 
+                             You have ${playerScore} points. 
+                             Computer has ${computerScore} points.`);
         }
     }
 
     if (playerScore > computerScore) {
-        console.log(`You're the winner of the game! You beated the Computer ${playerScore} - ${computerScore}, congratulations!`);
+        console.log(`You're the winner of the game! 
+                     You beated the Computer, 
+                     Your score: ${playerScore} - computer-score: ${computerScore}, 
+                     Congratulations!`);
     }else if (computerScore > playerScore) {
-        console.log(`The Computer is the winner of the game! The Computer beated you ${computerScore} - ${playerScore}. Next time you'll be lucky!`);
+        console.log(`The Computer is the winner of the game! 
+                      The Computer has won with the score of ${computerScore} - your score: ${playerScore}. 
+                      Next time you'll be lucky!`);
     }else{
-        console.log(`You tied the game! The score is ${playerScore} - ${computerScore}. Next time you'll be lucky!`)
+        console.log(`You've tied the game! 
+                     The score is ${playerScore} - ${computerScore}. 
+                     Next time you'll be lucky!`)
     }
 
-    let continueGame = prompt('Do you want to play another game? Insert "s" to play again', 'n').toLowerCase();
+    let continueGame = prompt('Insert "s" to play again', 'n').toLowerCase();
     if (continueGame === 's') {
         game();
     }else{
@@ -39,7 +52,8 @@ const game = () => {
 }
 
 const beginGame = () => {
-    let userGames = prompt('Welcome to \'Rock, Paper and Scissor - The Game\'! Insert "s" if you want to begin', 's').toLowerCase();
+    let userGames = prompt('Welcome to \'Rock, Paper and Scissor - The Game\'! \
+                            Insert "s" if you want to begin', 's').toLowerCase();
     if (userGames === "s"){
         game();
     }else{

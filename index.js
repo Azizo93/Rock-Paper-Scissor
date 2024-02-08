@@ -79,7 +79,7 @@ function playRound(userChoice, computerChoice) {
   return roundWinner;
 }
 
-const game = () => {
+const beginGame = () => {
     let playerScore = 0;
     let computerScore = 0;
     // let draw = 0;
@@ -131,23 +131,23 @@ const game = () => {
                     therefore we can't figure out who won, gg anyways!`.replace(/\s+/g, ' '));
     }
 
-    let continueGame = prompt('Insert "s" to play again', 'n').toLowerCase();
-    if (continueGame === 's') {
-        game();
+    let continueGame = prompt('Insert y to play again or anything else to quit', 'y').toLowerCase();
+    if (continueGame === 'y') {
+        beginGame();
     }else{
         alert('You quitted the game. See you next time!');
     }
 }
 
-const beginGame = () => {
-    let userGames = prompt('Welcome to \'Rock, Paper and Scissor - The Game\'! \
-                            Insert "s" if you want to begin', 's').toLowerCase();
-    if (userGames === "s"){
-        game();
-    }else{
-        console.log('If you want to start the game, you have to insert "s"!')
-        beginGame();
-    }
-}
-
-beginGame();
+// const beginGame = () => {
+//     let userGames = prompt('Welcome to \'Rock, Paper and Scissor - The Game\'! \
+//                             Insert "s" if you want to begin', 's').toLowerCase();
+//     if (userGames === "s"){
+//         game();
+//     }else{
+//         console.log('If you want to start the game, you have to insert "s"!')
+//         beginGame();
+//     }
+// }
+console.log('enter beginGame() to start the game');
+// beginGame();

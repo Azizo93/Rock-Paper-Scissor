@@ -34,4 +34,3 @@ function playerSelection() {
 
     return userChoiceNumber;
 }
-

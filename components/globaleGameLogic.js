@@ -7,21 +7,18 @@ const game = () => {
         //User let user = userInput();
         //Computer let computer = computerInput();
         //Round let winner = roundLogic(user, computer);
-        if (winner === 'user') {
-            playerScore++;
-            console.log(`You're the winner of the round number ${i+1}`);
-            console.log(`You have ${playerScore} points`);
-            console.log(`Computer has ${computerScore} points`);
-        }else if (winner === 'computer'){
-            computerScore++;
-            console.log(`The Computer is the winner of the round number ${i+1}`);
-            console.log(`You have ${playerScore} points`);
-            console.log(`Computer has ${computerScore} points`);
-        }else{
-            draw++;
-            console.log(`You tied the round number ${i+1}`);
-            console.log(`You have ${playerScore} points`);
-            console.log(`Computer has ${computerScore} points`);
+        switch (winner) {
+            case 'user':
+                playerScore++;
+                console.log(`You're the winner of the round number ${i+1}! You have ${playerScore} points. Computer has ${computerScore} points.`);
+                break;
+            case 'computer':
+                computerScore++;
+                console.log(`The Computer is the winner of the round number ${i+1}! You have ${playerScore} points. Computer has ${computerScore} points.`);
+                break;
+            default:
+                draw++;
+                console.log(`You tied the round number ${i+1}! You have ${playerScore} points. Computer has ${computerScore} points.`);
         }
     }
 
@@ -31,7 +28,14 @@ const game = () => {
         console.log(`The Computer is the winner of the game! The Computer beated you ${computerScore} - ${playerScore}. Next time you'll be lucky!`);
     }else{
         console.log(`You tied the game! The score is ${playerScore} - ${computerScore}. Next time you'll be lucky!`)
-    } 
+    }
+
+    let continueGame = prompt('Do you want to play another game? Insert "s" to play again', 'n').toLowerCase();
+    if (continueGame === 's') {
+        game();
+    }else{
+        alert('You quitted the game. See you next time!');
+    }
 }
 
 const beginGame = () => {

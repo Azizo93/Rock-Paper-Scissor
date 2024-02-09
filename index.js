@@ -1,4 +1,3 @@
-//Getting and validating user input
 function playerSelection() {
     let userInput = prompt("Please enter your choice (rock, paper, scissors):");
 
@@ -22,7 +21,6 @@ function playerSelection() {
     return userInput;
 }
 
-//Getting a random choice from computer
 function computerPlay() {   
     const randomNumber = Math.floor(Math.random() * 3);
     let computerChoice;
@@ -45,7 +43,6 @@ function computerPlay() {
     return computerChoice;
 }
 
-//Playing one round
 function playRound(userChoice, computerChoice) {
   let roundWinner = "tie";
 
@@ -66,7 +63,6 @@ function playRound(userChoice, computerChoice) {
   return roundWinner;
 }
 
-//Game Logic
 const startGame = () => {
     let playerScore = 0;
     let computerScore = 0;

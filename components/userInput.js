@@ -1,3 +1,4 @@
+//Getting and validating user input
 function playerSelection() {
     let userInput = prompt("Please enter your choice (rock, paper, scissors):");
 
@@ -10,7 +11,6 @@ function playerSelection() {
     }
 
     userInput = userInput.trim().replace(/\s+/g, '').toLowerCase(); 
-
     const validChoices = ['rock', 'paper', 'scissors'];
 
     if (!validChoices.includes(userInput)) {
@@ -19,21 +19,5 @@ function playerSelection() {
         return playerSelection();
     }
 
-    let userChoiceNumber;
-    switch (userInput) {
-        case 'rock':
-            userChoiceNumber = 0;
-            break;
-        case 'paper':
-            userChoiceNumber = 1;
-            break;
-        case 'scissors':
-            userChoiceNumber = 2;
-            break;
-    }
-
-    return userChoiceNumber;
+    return userInput;
 }
-
-const userChoice = playerSelection();
-console.log(`${userChoice}`);

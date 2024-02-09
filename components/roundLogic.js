@@ -1,26 +1,20 @@
-console.log("Hello, Round Logic!");
-
-function whoWins(uChoice, cChoice) {
+//Playing one round
+function playRound(userChoice, computerChoice) {
   let roundWinner = "tie";
+
   if (
-      (uChoice == 1 && cChoice == 0) ||
-      (uChoice == 2 && cChoice == 0) ||
-      (uChoice == 2 && cChoice == 1)
+      (userChoice == 'paper' && computerChoice == 'rock') ||
+      (userChoice == 'rock' && computerChoice == 'scissors') ||
+      (userChoice == 'scissors' && computerChoice == 'paper')
   ) {
         roundWinner = "user";
   } else if (
-      (uChoice == 0 && cChoice == 1) ||
-      (uChoice == 0 && cChoice == 2) ||
-      (uChoice == 1 && cChoice == 2)
+      (userChoice == 'rock' && computerChoice == 'paper') ||
+      (userChoice == 'scissors' && computerChoice == 'rock') ||
+      (userChoice == 'paper' && computerChoice == 'scissors')
   ) {
         roundWinner = "computer";
   }
-//    else if (
-//     (uChoice == 0 && cChoice == 0) ||
-//     (uChoice == 1 && cChoice == 1) ||
-//     (uChoice == 2 && cChoice == 2)
-//   ) {
-//     roundWinner = "tie";
-//   }}
+
   return roundWinner;
 }

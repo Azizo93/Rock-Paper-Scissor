@@ -10,7 +10,6 @@ function playerSelection() {
     }
 
     userInput = userInput.trim().replace(/\s+/g, '').toLowerCase(); 
-
     const validChoices = ['rock', 'paper', 'scissors'];
 
     if (!validChoices.includes(userInput)) {
@@ -19,27 +18,13 @@ function playerSelection() {
         return playerSelection();
     }
 
-    // let userChoiceNumber;
-    // switch (userInput) {
-    //     case 'rock':
-    //         userChoiceNumber = 0;
-    //         break;
-    //     case 'paper':
-    //         userChoiceNumber = 1;
-    //         break;
-    //     case 'scissors':
-    //         userChoiceNumber = 2;
-    //         break;
-    // }
-
     return userInput;
 }
 
-function computerPlay() {
-    
+function computerPlay() {   
     const randomNumber = Math.floor(Math.random() * 3);
-  
     let computerChoice;
+
     switch (randomNumber) {
       case 0:
         computerChoice = 'rock';
@@ -56,12 +41,11 @@ function computerPlay() {
     }
   
     return computerChoice;
-  
 }
-
 
 function playRound(userChoice, computerChoice) {
   let roundWinner = "tie";
+
   if (
       (userChoice == 'paper' && computerChoice == 'rock') ||
       (userChoice == 'rock' && computerChoice == 'scissors') ||
@@ -79,15 +63,15 @@ function playRound(userChoice, computerChoice) {
   return roundWinner;
 }
 
-const beginGame = () => {
+const startGame = () => {
     let playerScore = 0;
     let computerScore = 0;
-    // let draw = 0;
 
     for (let i = 0; i < 5; i++){
         let playerChoice = playerSelection();
         let computerChoice = computerPlay();
         let winner = playRound(playerChoice, computerChoice);
+
         switch (winner) {
             case 'user':
                 playerScore++;
@@ -108,7 +92,7 @@ const beginGame = () => {
                 break;
             default:
                 console.error('Unforseen error in reading winner, the game ended,\
-                               Please enter beginGame() to start again'.replace(/\s+/g, ' '));
+                               Please enter startGame() to start again'.replace(/\s+/g, ' '));
         }
     }
 
@@ -131,23 +115,14 @@ const beginGame = () => {
                     therefore we can't figure out who won, gg anyways!`.replace(/\s+/g, ' '));
     }
 
-    let continueGame = prompt('Insert y to play again or anything else to quit', 'y').toLowerCase();
-    if (continueGame === 'y') {
-        beginGame();
-    }else{
+    let continueGame = prompt('Insert y to play again or anything else to quit', 'y');
+
+    (continueGame && continueGame.toLowerCase() === 'y') ? 
+        startGame() 
+        : 
         alert('You quitted the game. See you next time!');
-    }
+    
+    return ('Enter startGame() to play again');
 }
 
-// const beginGame = () => {
-//     let userGames = prompt('Welcome to \'Rock, Paper and Scissor - The Game\'! \
-//                             Insert "s" if you want to begin', 's').toLowerCase();
-//     if (userGames === "s"){
-//         game();
-//     }else{
-//         console.log('If you want to start the game, you have to insert "s"!')
-//         beginGame();
-//     }
-// }
-console.log('enter beginGame() to start the game');
-// beginGame();
+console.log('enter startGame() to start the game');

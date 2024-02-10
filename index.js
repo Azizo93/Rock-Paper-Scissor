@@ -1,6 +1,6 @@
 function playerSelection() {
-    let userInput = prompt("Please enter your choice (rock, paper, scissors):");
-
+    let userInput = prompt("Please enter your choice (rock, paper or scissors):");
+  
     if (userInput === null || userInput.trim() === '') {
         console.error(userInput === null ? 
             `Please choose between 'Rock', 'Paper', or 'Scissors'. '${userInput}' is not a valid choice.` : 
@@ -8,23 +8,23 @@ function playerSelection() {
         
         return playerSelection(); 
     }
-
+  
     userInput = userInput.trim().replace(/\s+/g, '').toLowerCase(); 
     const validChoices = ['rock', 'paper', 'scissors'];
-
+  
     if (!validChoices.includes(userInput)) {
         console.error(`Invalid input: '${userInput}' is not a valid choice.`);
         console.log("Please choose between 'Rock', 'Paper', or 'Scissors'.");
         return playerSelection();
     }
-
+  
     return userInput;
 }
-
+  
 function computerPlay() {   
     const randomNumber = Math.floor(Math.random() * 3);
     let computerChoice;
-
+  
     switch (randomNumber) {
       case 0:
         computerChoice = 'rock';
@@ -42,87 +42,89 @@ function computerPlay() {
   
     return computerChoice;
 }
-
+  
 function playRound(userChoice, computerChoice) {
-  let roundWinner = "tie";
-
-  if (
+    let roundWinner = "tie";
+  
+    if (
       (userChoice == 'paper' && computerChoice == 'rock') ||
       (userChoice == 'rock' && computerChoice == 'scissors') ||
-      (userChoice == 'scissors' && computerChoice == 'paper')
-  ) {
+      (userChoice == 'scissors' && computerChoice == 'paper')) {
         roundWinner = "user";
-  } else if (
+    } else if (
       (userChoice == 'rock' && computerChoice == 'paper') ||
       (userChoice == 'scissors' && computerChoice == 'rock') ||
-      (userChoice == 'paper' && computerChoice == 'scissors')
-  ) {
+      (userChoice == 'paper' && computerChoice == 'scissors')) {
         roundWinner = "computer";
-  }
-
-  return roundWinner;
+    }
+  
+    return roundWinner;
 }
-
+  
 const startGame = () => {
     let playerScore = 0;
     let computerScore = 0;
-
+  
     for (let i = 0; i < 5; i++){
         let playerChoice = playerSelection();
         let computerChoice = computerPlay();
+  
+        console.log(`You have chosen: ${playerChoice}`);
+        console.log(`The Computer has chosen: ${computerChoice}`);
+  
         let winner = playRound(playerChoice, computerChoice);
-
+  
         switch (winner) {
             case 'user':
                 playerScore++;
-                console.log(`You're the winner of the round number ${i+1}! 
+                console.log(`You win Round ${i+1}! 
                              You have ${playerScore} points. 
-                             Computer has ${computerScore} points.`.replace(/\s+/g, ' '));
+                             The Computer has ${computerScore} points.`.replace(/\s+/g, ' '));
                 break;
             case 'computer':
                 computerScore++;
-                console.log(`The Computer is the winner of the round number ${i+1}! 
+                console.log(`The Computer wins Round ${i+1}! 
                              You have ${playerScore} points. 
-                             Computer has ${computerScore} points.`.replace(/\s+/g, ' '));
+                             The Computer has ${computerScore} points.`.replace(/\s+/g, ' '));
                 break;
             case 'tie':
-                console.log(`You tied the round number ${i+1}! 
+                console.log(`You & The Computer have tied Round ${i+1}! 
                              You have ${playerScore} points. 
-                             Computer has ${computerScore} points.`.replace(/\s+/g, ' '));
+                             The Computer has ${computerScore} points.`.replace(/\s+/g, ' '));
                 break;
             default:
-                console.error('Unforseen error in reading winner, the game ended,\
-                               Please enter startGame() to start again'.replace(/\s+/g, ' '));
+                console.error('There has been an unforseen error in reading the winner. The game has been forced to end.\
+                               Please type "startGame()" & press enter to play again'.replace(/\s+/g, ' '));
         }
     }
-
+  
     if (playerScore > computerScore) {
         console.log(`You're the winner of the game! 
-                     You beated the Computer, 
-                     Your score: ${playerScore} - computer score: ${computerScore}, 
+                     You have beaten the Computer. 
+                     Your score is: ${playerScore} - The Computers score is: ${computerScore}, 
                      Congratulations!`.replace(/\s+/g, ' '));
     }else if (computerScore > playerScore) {
         console.log(`The Computer is the winner of the game! 
-                      The Computer has won with the score of ${computerScore} - your score: ${playerScore}. 
-                      Next time you'll be lucky!`.replace(/\s+/g, ' '));
+                      The Computer has won with a score of ${computerScore} - Your score is: ${playerScore}. 
+                      Better luck next time!`.replace(/\s+/g, ' '));
     }else if (computerScore === playerScore){
         console.log(`You've tied the game! 
-                     The score is You: ${playerScore} - Computer: ${computerScore}. 
-                     Next time you'll be lucky!`.replace(/\s+/g, ' '))
+                     The final score is - You: ${playerScore} - Computer: ${computerScore}. 
+                     Try again and lets see if you can beat the Computer!`.replace(/\s+/g, ' '))
     }else{
         console.log(`Your score is ${playerScore}, 
                     computer score is ${computerScore}, 
-                    therefore we can't figure out who won, gg anyways!`.replace(/\s+/g, ' '));
+                    we are struggling to calculate the winner. regardless, well played.`.replace(/\s+/g, ' '));
     }
-
-    let continueGame = prompt('Insert y to play again or anything else to quit', 'y');
-
+  
+    let continueGame = prompt('Type "y" to play again or anything else to quit', 'y');
+  
     (continueGame && continueGame.toLowerCase() === 'y') ? 
-        startGame() 
-        : 
-        alert('You quitted the game. See you next time!');
+        startGame() : 
+        alert('You have chosen to end the game. See you next time!');
     
-    return ('Enter startGame() to play again');
+    return ('To play again type "startGame()" and hit enter!');
 }
 
-console.log('enter startGame() to start the game');
+console.log('Welcome to the game of Rock, Paper & Scissors!')
+console.log('Please type "startGame()" & press enter to begin the game!');

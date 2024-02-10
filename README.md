@@ -6,29 +6,23 @@ You can play the game directly in your browser by clicking [here](https://azizo9
 
 ## How to Play
 
-1. Open the game link in your browser.
-2. Open the browser's developer tools console.
-   - **For Google Chrome:** Press `Ctrl + Shift + J` (Windows/Linux) or `Cmd + Option + J` (Mac).
-   - **For Mozilla Firefox:** Press `Ctrl + Shift + K` (Windows/Linux) or `Cmd + Option + K` (Mac).
-   - **For Safari:** Press `Option + Cmd + C` (Mac).
-   - **For Microsoft Edge:** Press `F12` or `Ctrl + Shift + I`.
-3. Once the console is open, type `startGame()` and press `Enter` to begin the game.
-4. Follow the prompts to enter your choice of "rock," "paper," or "scissors" for each round.
+1. Clone this repository to your local machine.
+2. Open the `index.html` file in your preferred web browser.
+3. Open the browser's developer tools console. You can typically do this by right-clicking on the page, selecting "Inspect", and then navigating to the "Console" tab. Alternatively, you can use the keyboard shortcut `Ctrl + Shift + J` (Windows/Linux) or `Cmd + Option + J` (Mac) to open the console directly.
+4. In the console, type `startGame()` and press Enter to begin the game.
+5. Follow the prompts to choose either rock, paper, or scissors for each round.
+6. After 5 rounds, the game will display the winner.
 
-## Functions
+## Gameplay Controls
 
-### `playerSelection()`
+- To choose your move for each round, type either "rock", "paper", or "scissors" when prompted.
+- The game will display the computer's choice and the outcome of each round.
+- After 5 rounds, the final winner will be declared.
 
-This function prompts the player to enter their choice (rock, paper, or scissors). It validates the input and returns the player's choice.
+## Development
 
-### `computerPlay()`
+If you'd like to contribute to this project, feel free to fork the repository and submit a pull request with your changes.
 
-This function generates a random choice for the computer (rock, paper, or scissors).
+## License
 
-### `playRound(userChoice, computerChoice)`
-
-This function determines the winner of each round based on the choices made by the player and the computer.
-
-### `startGame()`
-
-This function initiates the game by running a loop for a series of rounds. It ke
+This project is licensed under the [MIT License](LICENSE).
